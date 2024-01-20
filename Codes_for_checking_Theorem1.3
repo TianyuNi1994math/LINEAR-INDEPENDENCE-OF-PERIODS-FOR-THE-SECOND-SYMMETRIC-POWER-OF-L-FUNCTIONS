@@ -1,0 +1,21 @@
+for k in range(6,14):
+    for l in range(1,k-1):
+        for m in range(0,l):
+            if ((gegenbauer(2*l,2*k-1-2*l,0)*(2^(4*k-4*l-3))*quadratic_L_function__exact(2-2*k+2*l,-4)*(1+2^(4*k-4*l-3))
+            +2*gegenbauer(2*l,2*k-1-2*l,1/4)*quadratic_L_function__exact(2-2*k+2*l,-15)*2^(4*k-4*l-3)
+            +2*(2^(4*k-4*l-3))*gegenbauer(2*l,2*k-1-2*l,1/2)*quadratic_L_function__exact(2-2*k+2*l,-3)*(1+2^(2*k-2*l-2)+2^(4*k-4*l-3))
+            +2*(2^(4*k-4*l-3))*gegenbauer(2*l,2*k-1-2*l,3/4)*quadratic_L_function__exact(2-2*k+2*l,-7)
+            +2*(2^(4*k-4*l-3))*gegenbauer(2*l,2*k-1-2*l,1)*zeta(4*l+3-4*k))
+            *(gegenbauer(2*m,2*k-1-2*m,0)*quadratic_L_function__exact(2-2*k+2*m,-4)
+            +2*gegenbauer(2*m,2*k-1-2*m,1/2)*quadratic_L_function__exact(2-2*k+2*m,-3)
+            +2*gegenbauer(2*m,2*k-1-2*m,1)*zeta(3-4*k+4*m))                         
+            -  (gegenbauer(2*m,2*k-1-2*m,0)*(2^(4*k-4*m-3))*quadratic_L_function__exact(2-2*k+2*m,-4)*(1+2^(4*k-4*m-3))
+            +2*gegenbauer(2*m,2*k-1-2*m,1/4)*quadratic_L_function__exact(2-2*k+2*m,-15)*2^(4*k-4*m-3)
+            +2*(2^(4*k-4*m-3))*gegenbauer(2*m,2*k-1-2*m,1/2)*quadratic_L_function__exact(2-2*k+2*m,-3)*(1+2^(2*k-2*m-2)+2^(4*k-4*m-3))
+            +2*(2^(4*k-4*m-3))*gegenbauer(2*m,2*k-1-2*m,3/4)*quadratic_L_function__exact(2-2*k+2*m,-7)
+            +2*(2^(4*k-4*m-3))*gegenbauer(2*m,2*k-1-2*m,1)*zeta(4*m+3-4*k))    
+            *(gegenbauer(2*l,2*k-1-2*l,0)*quadratic_L_function__exact(2-2*k+2*l,-4)
+            +2*gegenbauer(2*l,2*k-1-2*l,1/2)*quadratic_L_function__exact(2-2*k+2*l,-3)
+            +2*gegenbauer(2*l,2*k-1-2*l,1)*zeta(3-4*k+4*l)))   ==0 :
+                print("C_{},{},{} is singular".format(2*k,2*k-1-2*m,2*k-1-2*l))
+      
