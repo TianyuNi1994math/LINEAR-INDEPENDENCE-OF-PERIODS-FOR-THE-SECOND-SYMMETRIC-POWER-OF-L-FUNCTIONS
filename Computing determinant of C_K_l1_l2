@@ -1,0 +1,21 @@
+#function for getting the q-coefficient of Cohen's modular form C_{K,r}(z)(see (2.1) in the paper)
+def get_1stCoeffofCohenMF(K, r):
+    return (gegenbauer(K-1-r,r,0)*quadratic_L_function__exact(1-r,-4)
+            +2*gegenbauer(K-1-r,r,1/2)*quadratic_L_function__exact(1-r,-3)
+            +2*gegenbauer(K-1-r,r,1)*zeta(1-2*r))
+
+#function for getting the q^4-coefficient of Cohen's modular form C_{K,r}(z)
+def get_4thCoeffofCohenMF(K, r):
+    return   (2^(K-1-r)*gegenbauer(K-1-r,r,0)*quadratic_L_function__exact(1-r,-4)*(1+2^(2*r-1))
+       +2*2^(K-1-r)*gegenbauer(K-1-r,r,1/4)*quadratic_L_function__exact(1-r,-15)
+            +2*2^(K-1-r)*gegenbauer(K-1-r,r,1/2)*quadratic_L_function__exact(1-r,-3)*(1+2^(2*r-1)+2^(r-1))
+            +2*2^(K-1-r)*gegenbauer(K-1-r,r,3/4)*quadratic_L_function__exact(1-r,-7)
+            +2*2^(K-1-r)*gegenbauer(K-1-r,r,1)*zeta(1-2*r) )
+
+#function for determinant  
+def get_detofmatrix(K,l1,l2):
+    return ((get_1stCoeffofCohenMF(K, K-1-2*l1))*(get_4thCoeffofCohenMF(K,K-1-2*l2))
+              -(get_1stCoeffofCohenMF(K,K-1-2*l2))*(get_4thCoeffofCohenMF(K, K-1-2*l1)))
+
+
+   
